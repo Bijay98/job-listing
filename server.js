@@ -3,7 +3,8 @@ const app = express();
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 const authRoute=require("./router/auth");
-const bodyParser = require('body-parser');
+const jobRoute=require("./router/job");
+
 dotenv.config();
 
 // app.use(bodyParser.urlencoded({extended:false}))
@@ -17,7 +18,10 @@ mongoose
 app.get('/', (req,res)=>{
     res.send("welcome bijay")
 })
+
+
 app.use('/api/v1/auth',authRoute)
+app.use('/api/v1/job',jobRoute)
 
 const port=7000
 
